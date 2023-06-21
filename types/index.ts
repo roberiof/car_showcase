@@ -1,8 +1,15 @@
-import { MouseEventHandler } from "react";
+import { MouseEventHandler , Dispatch } from "react";
+import { fuels } from "@/constants";
+import { yearsOfProduction } from "@/constants";
 
 export interface CustomButtonProps {
     title: string,
     containerStyles?: string,
     btnType?: 'button' | 'submit',
     handleClick?: MouseEventHandler<HTMLButtonElement>,
+}
+
+export interface SearchManufacturerProps {
+    manufacturer: string, 
+    setManufacturer: (manufacturer : string) => void
 }
