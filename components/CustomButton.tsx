@@ -2,7 +2,6 @@
 import React from 'react'
 import { CustomButtonProps } from '@/types';
 
-
 const CustomButton = ({title, containerStyles, handleClick, btnType} : CustomButtonProps) => {
   return (
     <button
