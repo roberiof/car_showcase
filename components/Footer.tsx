@@ -24,7 +24,7 @@ const Footer = () => {
                             <Link
                             key={link.title}
                             href={link.url}
-                            className="text-gray-500"
+                            className="text-gray-500 hover:underline"
                             >
                             {link.title}
                             </Link>
@@ -39,10 +39,10 @@ const Footer = () => {
             <p className='´p-4 m-auto'>@2023 CarHub. All rights reserved</p>
  
             <div className="footer__copyrights-link p-4">
-                <Link href="/" className="text-gray-500">
+                <Link href="/" className="text-gray-500 hover:underline">
                     Privacy & Policy
                 </Link>
-                <Link href="/" className="text-gray-500">
+                <Link href="/" className="text-gray-500 hover:underline">
                     Terms & Condition
                 </Link>
             </div>
