@@ -2,13 +2,41 @@
 import React , {useState} from 'react'
 import { SearchManufacturer , SearchButton } from './'
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const SearchBar = () => {
   const [manufacturer , setManufacturer] = useState<string>('')
   const [model, setModel] = useState<string>('')
+  const router = useRouter()
 
-  const handleSearch = () =>{
+  const handleSearch = (e:React.FormEvent<HTMLFormElement>) =>{
+    e.preventDefault()
 
+    if (manufacturer.trim() === "" && model.trim() === "") {
+      return alert("Please provide some input");
+    }
+
+    updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
+  }
+
+  const updateSearchParams = (model:string, manufacturer: string) => {
+      const searchParams = new URLSearchParams(window.location.search)
+  
+      if (model) {
+        searchParams.set("model", model);
+      } else {
+        searchParams.delete("model");
+      }
+  
+      if (manufacturer) {
+        searchParams.set("manufacturer", manufacturer);
+      } else {
+         searchParams.delete("manufacturer");
+      }
+  
+      const newPathName = `${window.location.pathname}?${searchParams.toString()}`;
+  
+      router.push(newPathName);
   }
 
   return (
