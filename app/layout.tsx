@@ -1,23 +1,20 @@
-import './globals.css'
-import { Header , Footer } from "@/components"
+import "./globals.css";
+
+import { Footer, NavBar } from "@components";
 
 export const metadata = {
-  title: 'Car Showcase',
-  description: 'A car showcase developed with NextJS',
-}
+  title: "Car Hub",
+  description: "Discover world's best car showcase application",
+};
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className='relative overflow-x-hidden'> 
-        <Header/>
-        {children} 
-        <Footer/>
+    <html lang='en'>
+      <body className='relative'>
+        <NavBar />
+        {children}
+        <Footer />
       </body>
     </html>
-  )
+  );
 }
